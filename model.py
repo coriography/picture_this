@@ -1,5 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 
+import bcrypt
+
 db = SQLAlchemy()
 
 def connect_to_db(flask_app, db_uri='postgresql:///pt', echo=True):
