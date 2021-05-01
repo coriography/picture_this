@@ -2,3 +2,4 @@
 notes.txt
 env
 secrets.sh
+__pycache__/
