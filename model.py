@@ -26,6 +26,9 @@ class User(db.Model):
     email = db.Column(db.String(50), nullable=False)
     password_hashed = db.Column(db.LargeBinary(128), nullable=False)
 
+    def get_hash(password):
+        return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt(15))
+
     def check_password(self, password):
         encoded_password = password.encode("utf-8")
         return bcrypt.checkpw(encoded_password, self.password_hashed)
