@@ -13,6 +13,12 @@ def index():
 
     return render_template("home.html")
 
+@app.route("/my_board")
+def show_my_board():
+    """Return home page."""
+
+    return render_template("my_board.html")
+
 if __name__ == "__main__":
     connect_to_db(app)
     app.run(debug=True, host="0.0.0.0")
