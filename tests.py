@@ -39,11 +39,11 @@ class TestDb(unittest.TestCase):
         connect_to_db(app, db_uri='postgresql:///pt')
 
         db.create_all()
-        test_seed_data.test_user()
+        test_seed_data.test_all()
         ####### ** see test_seed_data.py for test_data helper functions ** #######
 
     def test_homepage(self):
-        """Does my homepage run with the test db created?"""
+        """Can I add everything to my db?"""
 
         result = self.client.get('/')
         self.assertEqual(result.status_code, 200)

@@ -7,15 +7,6 @@ import os
 db = SQLAlchemy()
 
 
-# os.system('dropdb pt')
-# os.system('createdb pt')
-
-# db.create_all()
-
-# db.session.add(n)
-# db.session.commit()
-
-
 class User(db.Model):
     """Data model for a user."""
 
@@ -37,6 +28,26 @@ class User(db.Model):
         """Display info about User."""
 
         return f'<User user_id={self.user_id}, username={self.username}, email={self.email}>'
+
+
+class Image(db.Model):
+    """Data model for an image."""
+
+    __tablename__ = "images"
+
+    image_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    url = db.Column(db.String, nullable=False)
+    notes = db.Column(db.String)
+    private = db.Column(db.Boolean, nullable=False)
+    time = db.Column(db.DateTime, nullable=False)
+    # FK user
+    # FK tag
+
+
+    def __repr__(self):
+        """Display info about Image."""
+
+        return f'<User image_id={self.image_id}, url={self.url}, date={self.date}>'
 
 
 def connect_to_db(flask_app, db_uri='postgresql:///pt', echo=True):
