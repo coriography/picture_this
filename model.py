@@ -47,7 +47,25 @@ class Image(db.Model):
     def __repr__(self):
         """Display info about Image."""
 
-        return f'<User image_id={self.image_id}, url={self.url}, date={self.date}>'
+        return f'<Image image_id={self.image_id}, url={self.url}, date={self.date}>'
+
+
+class Tag(db.Model):
+    """Data model for a tag."""
+
+    __tablename__ = "tags"
+
+    tag_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    name = db.Column(db.String(15), nullable=False)
+    icon = db.Column(db.String(50), nullable=False)
+    hex_code = db.Column(db.String(15), nullable=False)
+    # FK user
+
+
+    def __repr__(self):
+        """Display info about Image."""
+
+        return f'<Tag tag_id={self.tag_id}, name={self.name}>'
 
 
 def connect_to_db(flask_app, db_uri='postgresql:///pt', echo=True):

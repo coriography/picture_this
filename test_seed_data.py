@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 def test_all():
     test_user()
     test_image()
+    test_tag()
 
 def test_user():
     """Creates test user in test database"""
@@ -24,4 +25,15 @@ def test_image():
         private=False,
         time=datetime.now(timezone.utc))
     db.session.add(test_img)
+    db.session.commit()
+
+
+def test_tag():
+    """Creates test tag in test database"""
+
+    test_tag = Tag(
+        name='honey badgers', 
+        icon='fas fa-badger-honey',
+        hex_code='#FFC0CB')
+    db.session.add(test_tag)
     db.session.commit()
