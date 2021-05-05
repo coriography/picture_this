@@ -17,6 +17,9 @@ class User(db.Model):
     email = db.Column(db.String(50), nullable=False)
     password_hashed = db.Column(db.LargeBinary(128), nullable=False)
 
+    # images: a list of Image objects associated with User.
+    # relationship is established in Image model.
+
     def get_hash(password):
         return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt(15))
 
@@ -30,26 +33,6 @@ class User(db.Model):
         return f'<User user_id={self.user_id}, username={self.username}, email={self.email}>'
 
 
-class Image(db.Model):
-    """Data model for an image."""
-
-    __tablename__ = "images"
-
-    image_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    url = db.Column(db.String, nullable=False)
-    notes = db.Column(db.String)
-    private = db.Column(db.Boolean, nullable=False)
-    time = db.Column(db.DateTime, nullable=False)
-    # FK user
-    # FK tag
-
-
-    def __repr__(self):
-        """Display info about Image."""
-
-        return f'<Image image_id={self.image_id}, url={self.url}, date={self.date}>'
-
-
 class Tag(db.Model):
     """Data model for a tag."""
 
@@ -61,11 +44,39 @@ class Tag(db.Model):
     hex_code = db.Column(db.String(15), nullable=False)
     # FK user
 
+    # images: a list of Image objects associated with Tag.
+    # relationship is established in Image model.
 
     def __repr__(self):
         """Display info about Image."""
 
         return f'<Tag tag_id={self.tag_id}, name={self.name}>'
+
+
+
+class Image(db.Model):
+    """Data model for an image."""
+
+    __tablename__ = "images"
+
+    image_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    url = db.Column(db.String, nullable=False)
+    notes = db.Column(db.String)
+    private = db.Column(db.Boolean, nullable=False)
+    time = db.Column(db.DateTime, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
+    tag_id = db.Column(db.Integer, db.ForeignKey('tags.tag_id'))
+    
+    # establishes foreign keys as two-way relationships
+    user = db.relationship('User', foreign_keys=[user_id], backref='images')
+    tag = db.relationship('Tag', foreign_keys=[tag_id], backref='images')
+
+
+    def __repr__(self):
+        """Display info about Image."""
+
+        return f'<Image image_id={self.image_id}, url={self.url}, date={self.date}>'
+
 
 
 def connect_to_db(flask_app, db_uri='postgresql:///pt', echo=True):
