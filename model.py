@@ -68,7 +68,6 @@ class Image(db.Model):
     url = db.Column(db.String, nullable=False)
     notes = db.Column(db.String)
     private = db.Column(db.Boolean, nullable=False)
-    time = db.Column(db.DateTime, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
     tag_id = db.Column(db.Integer, db.ForeignKey('tags.tag_id'))
     
