@@ -1,5 +1,4 @@
 from model import *
-from datetime import datetime, timezone
 from helpers import *
 
 def test_all():
@@ -9,22 +8,18 @@ def test_all():
 
 def test_user():
     """Creates test user in test database"""
-
     register_user('Guppy', 'guppy@thecat.com', 'badpw')
 
 
 def test_image():
     """Creates test image in test database"""
-
-    test_img = Image(
-        url='https://s.keepmeme.com/files/en_posts/20200822/cc83fa3c7f8f8d04b3cdb12d65d57101confused-cat-with-a-lot-of-question-marks.jpg', 
-        notes='this cat is CONFUSE', 
-        private=False,
-        time=datetime.now(timezone.utc),
-        user_id=1,
-        tag_id=None)
-    db.session.add(test_img)
-    db.session.commit()
+    upload_image(
+        'https://s.keepmeme.com/files/en_posts/20200822/cc83fa3c7f8f8d04b3cdb12d65d57101confused-cat-with-a-lot-of-question-marks.jpg',
+        'this cat is CONFUSE',
+        1,
+        False,
+        None
+        )
 
 
 def test_tag():
