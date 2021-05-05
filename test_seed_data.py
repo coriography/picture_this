@@ -24,7 +24,8 @@ def test_image():
         notes='this cat is CONFUSE', 
         private=False,
         time=datetime.now(timezone.utc),
-        user_id=1)
+        user_id=1,
+        tag_id=None)
     db.session.add(test_img)
     db.session.commit()
 
@@ -35,6 +36,7 @@ def test_tag():
     test_tag = Tag(
         name='honey badgers', 
         icon='fas fa-badger-honey',
-        hex_code='#FFC0CB')
+        hex_code='#FFC0CB',
+        user_id=1)
     db.session.add(test_tag)
     db.session.commit()

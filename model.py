@@ -19,6 +19,8 @@ class User(db.Model):
 
     # images: a list of Image objects associated with User.
     # relationship is established in Image model.
+    # tags: a list of Tag objects associated with User.
+    # relationship is established in Tag model.
 
     def get_hash(password):
         return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt(15))
@@ -42,10 +44,13 @@ class Tag(db.Model):
     name = db.Column(db.String(15), nullable=False)
     icon = db.Column(db.String(50), nullable=False)
     hex_code = db.Column(db.String(15), nullable=False)
-    # FK user
+    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'), nullable=False)
 
     # images: a list of Image objects associated with Tag.
     # relationship is established in Image model.
+
+    # establishes foreign key as two-way relationship
+    user = db.relationship('User', foreign_keys=[user_id], backref='tags')
 
     def __repr__(self):
         """Display info about Image."""
