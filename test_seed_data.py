@@ -1,5 +1,6 @@
 from model import *
 from datetime import datetime, timezone
+from helpers import *
 
 def test_all():
     test_user()
@@ -9,12 +10,8 @@ def test_all():
 def test_user():
     """Creates test user in test database"""
 
-    test_user = User(
-        username='Guppy', 
-        email='guppy@thecat.com', 
-        password_hashed=User.get_hash('badpw'))
-    db.session.add(test_user)
-    db.session.commit()
+    register_user('Guppy', 'guppy@thecat.com', 'badpw')
+
 
 def test_image():
     """Creates test image in test database"""
