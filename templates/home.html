@@ -3,6 +3,19 @@
 {% block body %}
 <div class="container">
     <h1>Welcome - Home</h1>
+
+    <form action="/api/register_user" method="POST">
+        <label>Username:</label>
+        <input type="text" name="username">
+
+        <label>Email:</label>
+        <input type="text" name="email">
+      
+        <label>Password:</label>
+        <input type="text" name="password">
+      
+        <input type="submit">
+    </form>
 </div>
     
 

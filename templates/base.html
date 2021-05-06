@@ -21,6 +21,11 @@
     <a href="/">Home</a>
     <a href="/my_board">My Board</a>
     <a href="/upload">Upload</a>
+    <ul>
+    {% for message in get_flashed_messages() %}
+        <li class="text-success">{{ message }}</li>
+    {% endfor %}
+    </ul>
 
     {% block body %}
     <!-- see templates -->
