@@ -26,6 +26,13 @@ class serverTests(unittest.TestCase):
         self.assertEqual(result.status_code, 200)
         self.assertIn(b"board", result.data)
 
+    def test_upload_page(self):
+        """Does Upload page load?"""
+
+        result = self.client.get("/upload")
+        self.assertEqual(result.status_code, 200)
+        self.assertIn(b"upload", result.data)
+
 
 class TestDb(unittest.TestCase):
     """Tests database"""
