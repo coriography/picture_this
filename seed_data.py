@@ -3,20 +3,47 @@ data = {
         'name': 'Guppy',
         'email': 'guppy@thecat.com',
         'password': 'badpw',
-        'images': [
+        'tags': [
             {
-                'url': 'https://s.keepmeme.com/files/en_posts/20200822/cc83fa3c7f8f8d04b3cdb12d65d57101confused-cat-with-a-lot-of-question-marks.jpg',
-                'notes': 'this cat is CONFUSE',
-                'private': False,
-                'user': 1,
-                'tag': None
+                'name': 'cats',
+                'icon': 'fas fa-cat',
+                'hex_code': '#9EA93F',
+                'user_id': '1'
             },
             {
-                'url': 'https://s.keepmeme.com/files/en_posts/20200822/cc83fa3c7f8f8d04b3cdb12d65d57101confused-cat-with-a-lot-of-question-marks.jpg',
-                'notes': '222 this cat is CONFUSE',
+                'name': 'food',
+                'icon': 'fas fa-hamburger',
+                'hex_code': '#344594',
+                'user_id': '1'
+            },
+            {
+                'name': 'travel',
+                'icon': 'fas fa-paper-plane',
+                'hex_code': '#AB81CD',
+                'user_id': '1'
+            },
+        ],
+        'images': [
+            {
+                'url': 'https://cdn.vox-cdn.com/thumbor/X-xVN1krqbh9Co35_AXiZRHRAUk=/0x26:640x453/1200x800/filters:focal(0x26:640x453)/cdn.vox-cdn.com/assets/1275052/kitten_field_jump.jpeg',
+                'notes': 'leaping kitteh',
+                'private': False,
+                'user': 1,
+                'tag': 'cats'
+            },
+            {
+                'url': 'http://laurencariscooks.com/1_lcc/wp-content/uploads/2016/08/Black-Bean-Burgers-4-600x600.jpg',
+                'notes': 'vegan burgers YUM',
                 'private': True,
                 'user': 1,
-                'tag': None
+                'tag': 'food'
+            },
+            {
+                'url': 'https://d1e00ek4ebabms.cloudfront.net/production/9f067a3c-87df-4503-bfc2-63c3a7b769f4.jpg',
+                'notes': 'Irish Cottagecore 4ever',
+                'private': False,
+                'user': 1,
+                'tag': 'travel'
             }
         ]
     },
