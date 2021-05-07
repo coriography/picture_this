@@ -2,12 +2,10 @@
 
 {% block body %}
 <div class="container">
-    <h1>Welcome - Please Register An Account</h1>
-    <p>or <a href="/login">Log In</a></p>
+    <h1>Log Your Bad Self In</h1>
+    <p>or <a href="/">Register an Account</a></p>
 
-    <form action="/api/register_user" method="POST">
-        <label>Username:</label>
-        <input type="text" name="username">
+    <form action="/api/log_in" method="POST">
 
         <label>Email:</label>
         <input type="text" name="email">

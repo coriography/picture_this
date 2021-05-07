@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, flash, redirect
+from flask import Flask, render_template, request, flash, redirect, session
 import jinja2
 import os
 from model import connect_to_db
+import helpers
 
 app = Flask(__name__) 
 app.secret_key = os.environ["SECRET_KEY"] # use key exported from secrets.sh
@@ -16,11 +17,18 @@ def go_home():
 
     return render_template("home.html")
 
+@app.route("/login")
+def show_login():
+    """Return login page."""
+
+    return render_template("login.html")
+
 @app.route("/my_board")
 def show_my_board():
     """Return My Board page."""
+    all_users = helpers.get_all_users()
 
-    return render_template("my_board.html")
+    return render_template("my_board.html", all_users=all_users)
 
 @app.route("/upload")
 def show_upload_page():
@@ -38,19 +46,15 @@ def register_new_user():
     username = request.form['username']
     email = request.form['email']
     password = request.form['password']
-
-    flash(f'Account created for {username}, {email}')
-    return redirect('/')
-
-    # if username and email are not already in db,
-    #     session['user'] = username
-    #     flash(f'Logged in as {username}')
-    #     return redirect('/')
-
-    # else:
-    #     flash('Wrong password!')
-    #     return redirect('/login')
     
+    if helpers.check_username(username) == None and helpers.check_email(email) == None:
+        user = helpers.register_user(username, email, password)
+        flash(f'Account created!')
+        return redirect('/login')
+    else:
+        flash('Try again with a different username and email!')
+        return redirect('/')
+
 
 if __name__ == "__main__":
     connect_to_db(app)
