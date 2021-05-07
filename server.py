@@ -56,6 +56,29 @@ def register_new_user():
         return redirect('/')
 
 
+@app.route('/api/log_in', methods=['POST'])
+def log_in_user():
+    """Log in existing user."""
+    
+    email = request.form['email']
+    password = request.form['password']
+    
+    if helpers.check_email(email) == None:
+        flash(f'Email doesn\'t exist in database!')
+        return redirect('/login')
+    else:
+        user = helpers.check_email(email)
+    
+    if user.check_password(password):
+        session['user_id'] = user.user_id
+        session['username'] = user.username
+        flash('Successfully logged in!')
+        return redirect('/my_board')
+    else:
+        flash('Incorrect password!')
+        return redirect('/login')
+
+
 if __name__ == "__main__":
     connect_to_db(app)
     app.run(debug=True, host="0.0.0.0")
