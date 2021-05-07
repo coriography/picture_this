@@ -3,6 +3,12 @@
 {% block body %}
 <div class="container">
     <h1>This is my board</h1>
+    {% if 'username' in session %}
+    <p>WELCOME, {{session.username}}</p>
+    <button class="btn btn-secondary">Log Out</button>
+    {% else %}
+    <p>Please log in or create an account to see your board.</p>
+    {% endif %}
 </div>
     
 
