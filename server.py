@@ -17,7 +17,7 @@ def go_home():
 
     return render_template("home.html")
 
-@app.route("/login")
+@app.route("/log_in")
 def show_login():
     """Return login page."""
 
@@ -26,9 +26,13 @@ def show_login():
 @app.route("/my_board")
 def show_my_board():
     """Return My Board page."""
-    all_users = helpers.get_all_users()
 
-    return render_template("my_board.html", all_users=all_users)
+    if 'user_id' in session:
+        user_images = helpers.get_images_by_user(session['user_id'])
+    else:
+        user_images = None
+
+    return render_template("my_board.html", user_images=user_images)
 
 @app.route("/upload")
 def show_upload_page():
