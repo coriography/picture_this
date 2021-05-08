@@ -6,10 +6,22 @@
     {% if user %}
     <div class="row justify-content-center">
         <div class="col-lg-6">
-            <h1>My tags</h1>
+            <div class="mb-4">
+                <h1>My tags</h1>
+
+                {% if user['tags'] %}
+                    {% for tag in user['tags'] %}
+                        <button class="btn btn-primary" value="{{tag.tag_id}}" style="background-color: purple">
+                            <i class="fas fa-cat mr-2"></i> 
+                            {{tag.name}}
+                        </button>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            
 
             <form action="/api/add_tag" method="POST">
-
+                <h4>add new tag</h4>
                 <div class="form-group">
                     <label>Name:</label>
                     <input class="form-control" type="text" name="name">
@@ -24,8 +36,7 @@
                     <label>Color:</label>
                     <input class="form-control" type="textarea" name="color">
                 </div>
-
-                <input type="hidden" value="{{user.user_id}}">
+                <input type="hidden" value="{{user.user_id}}" name="user_id">
 
                 <input class="form-control btn btn-primary" type="submit">
             </form>

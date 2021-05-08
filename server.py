@@ -90,6 +90,7 @@ def log_in_user():
         user = helpers.check_email(email)
     
     if user.check_password(password):
+        # session['user'] = user
         session['user_id'] = user.user_id
         session['username'] = user.username
         flash('Successfully logged in!')
@@ -122,6 +123,25 @@ def user_upload_from_form():
     flash('Upload success message')
 
     return redirect('/my_board')
+
+@app.route('/api/add_tag', methods=['POST'])
+def add_tag_from_form():
+
+    name = request.form['name']
+    icon = request.form['icon']
+    color = request.form['color']
+    user_id = request.form['user_id']
+
+    helpers.create_tag(name, icon, color, user_id)
+
+    flash('Tag created successfully')
+
+    if 'user_id' in session:
+        user = helpers.get_user_by_user_id(session['user_id'])
+    else:
+        user = None
+
+    return render_template("upload.html", user=user)
 
 
 if __name__ == "__main__":
