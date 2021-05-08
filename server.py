@@ -54,7 +54,7 @@ def register_new_user():
     if helpers.check_username(username) == None and helpers.check_email(email) == None:
         user = helpers.register_user(username, email, password)
         flash(f'Account created!')
-        return redirect('/login')
+        return redirect('/log_in')
     else:
         flash('Try again with a different username and email!')
         return redirect('/')
@@ -69,7 +69,7 @@ def log_in_user():
     
     if helpers.check_email(email) == None:
         flash(f'Email doesn\'t exist in database!')
-        return redirect('/login')
+        return redirect('/log_in')
     else:
         user = helpers.check_email(email)
     
