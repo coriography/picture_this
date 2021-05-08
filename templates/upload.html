@@ -10,18 +10,36 @@
                     <label>URL:</label>
                     <input class="form-control" type="text" name="url">
                 </div>
+
                 <div class="form-group">
                     <label>Notes:</label>
                     <input class="form-control" type="textarea" name="notes">
                 </div>
-                <div class="form-group">
-                    <label>Private:</label>
-                    <input class="form-control" type="text" name="private">
+
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="private" name="private" value="yes">
+                    <label class="form-check-label" for="exampleCheck1">Mark this image as Private</label>
                 </div>
+                
                 <div class="form-group">
+                    <select class="custom-select">
+                        <option selected>Add a tag</option>
+                        <option value="None">No tag</option>
+                    </select>
+                </div>
+
+                {% for tag in user['tags'] %}
+                <p>tag</p>
+                {% else %}
+                <p>no tags yet!</p>
+                {% endfor %}
+
+                
+                <!-- <div class="form-group">
                     <label>Tag:</label>
-                    <input class="form-control" type="text" name="tag">
-                </div>
+                    <input class="form-control" type="text" name="tag_id">
+                </div> -->
+
                 <div class="form-group">
                     <input class="form-control btn btn-primary" type="submit">
                 </div>

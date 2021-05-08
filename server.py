@@ -28,17 +28,22 @@ def show_my_board():
     """Return My Board page."""
 
     if 'user_id' in session:
-        user_images = helpers.get_images_by_user(session['user_id'])
+        user = helpers.get_user_by_user_id(session['user_id'])
     else:
-        user_images = None
+        user = None
 
-    return render_template("my_board.html", user_images=user_images)
+    return render_template("my_board.html", user=user)
 
 @app.route("/upload")
 def show_upload_page():
     """Return My Board page."""
 
-    return render_template("upload.html")
+    if 'user_id' in session:
+        user = helpers.get_user_by_user_id(session['user_id'])
+    else:
+        user = None
+
+    return render_template("upload.html", user=user)
 
 
 ##### * API * #####
@@ -77,10 +82,10 @@ def log_in_user():
         session['user_id'] = user.user_id
         session['username'] = user.username
         flash('Successfully logged in!')
-        return redirect('/my_board')
+        return render_template('/my_board.html', user=user)
     else:
         flash('Incorrect password!')
-        return redirect('/login')
+        return redirect('/log_in')
 
 @app.route('/api/log_out')
 def log_out():
@@ -92,8 +97,19 @@ def log_out():
 @app.route('/api/upload', methods=['POST'])
 def user_upload_from_form():
 
+    url = request.form['url']
+    notes = request.form['notes']
+    user_id = session['user_id']
+    if 'private' in request.form:
+        private = True
+    else:
+        private = False
+    tag_id = request.form['tag_id']
 
-    flash('Upload submit message')
+    helpers.upload_image(url, notes, user_id, private, tag_id)
+
+    flash('Upload success message')
+
     return redirect('/my_board')
 
 
