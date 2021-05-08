@@ -10,12 +10,15 @@
             <a class="btn btn-secondary" href="/api/log_out">Log Out</a>
         </div>
         
-        
             <div class="row">
                 {% for image in user['images'] %}
                     <div class="col-lg-4">
                         <img class="img-fluid" src="{{image.url}}" alt="">
-                        <p>tag here</p>
+                        {% if image.tag %}
+                        <p>{{image.tag.icon}}{{image.tag.name}}</p>
+                        {% else %}
+                        <p>no tag</p>
+                        {% endif %}
                     </div>
                 {% endfor %}
             </div>
