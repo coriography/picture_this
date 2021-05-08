@@ -12,7 +12,7 @@
                 {% if user['tags'] %}
                     {% for tag in user['tags'] %}
                         <button class="btn btn-primary" value="{{tag.tag_id}}" style="background-color: purple">
-                            <i class="fas fa-cat mr-2"></i> 
+                            <i class="{{tag.icon}} mr-2"></i> 
                             {{tag.name}}
                         </button>
                     {% endfor %}
@@ -29,13 +29,14 @@
 
                 <div class="form-group">
                     <label>Icon:</label>
-                    <input class="form-control" type="textarea" name="icon">
+                    <p class="small">search free icons <a href="https://fontawesome.com/icons?d=gallery&p=2&m=free">here</a>. copy class name (e.g. "fas fa-cat") and paste below.</p>
+                    <input class="form-control" type="textarea" name="icon" >
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label>Color:</label>
                     <input class="form-control" type="textarea" name="color">
-                </div>
+                </div> -->
                 <input type="hidden" value="{{user.user_id}}" name="user_id">
 
                 <input class="form-control btn btn-primary" type="submit">

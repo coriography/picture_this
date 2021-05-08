@@ -18,10 +18,10 @@
                     <input class="form-control" type="textarea" name="notes">
                 </div>
 
-                <div class="form-check">
+                <!-- <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="private" name="private" value="yes">
                     <label class="form-check-label" for="exampleCheck1">Mark this image as Private</label>
-                </div>
+                </div> -->
 
                 {% if user['tags'] %}
                 
@@ -33,15 +33,16 @@
                         {% endfor %}
                     </select>
                 </div>
-                {% else %}
-                <div class="form-group">
-                    <p>You haven't created any tags yet! <a href="/tags">Add tags now</a></p>
-                </div>
-                {% endif %}
-
                 <div class="form-group">
                     <input class="form-control btn btn-primary" type="submit">
                 </div>
+                {% else %}
+                <div class="form-group">
+                    <p>Before you upload, please <a href="/tags">add a tag</a></p>
+                </div>
+                {% endif %}
+
+                
             </form>
 
             {% else %}

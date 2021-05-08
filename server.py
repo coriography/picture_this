@@ -129,7 +129,7 @@ def add_tag_from_form():
 
     name = request.form['name']
     icon = request.form['icon']
-    color = request.form['color']
+    color = 'pink' # TODO: make this dynamic
     user_id = request.form['user_id']
 
     helpers.create_tag(name, icon, color, user_id)
