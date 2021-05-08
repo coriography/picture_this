@@ -5,7 +5,8 @@
     <h1>My Board</h1>
     {% if 'username' in session %}
         <p>WELCOME, {{session.username}}</p>
-        <button class="btn btn-secondary">Log Out</button>
+        <a class="btn btn-primary" href="/upload">Upload photos</a>
+        <a class="btn btn-secondary" href="/api/log_out">Log Out</a>
 
         {% if user_images %}
             <div class="row">

@@ -82,6 +82,13 @@ def log_in_user():
         flash('Incorrect password!')
         return redirect('/login')
 
+@app.route('/api/log_out')
+def log_out():
+
+    session.clear()
+    flash('Logout successful.')
+    return redirect('/')
+
 
 if __name__ == "__main__":
     connect_to_db(app)
