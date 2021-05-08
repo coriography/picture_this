@@ -36,7 +36,7 @@ def show_my_board():
 
 @app.route("/upload")
 def show_upload_page():
-    """Return My Board page."""
+    """Return Upload page."""
 
     if 'user_id' in session:
         user = helpers.get_user_by_user_id(session['user_id'])
@@ -44,6 +44,17 @@ def show_upload_page():
         user = None
 
     return render_template("upload.html", user=user)
+
+@app.route("/tags")
+def show_tags_page():
+    """Return Tags page."""
+
+    if 'user_id' in session:
+        user = helpers.get_user_by_user_id(session['user_id'])
+    else:
+        user = None
+
+    return render_template("tags.html", user=user)
 
 
 ##### * API * #####

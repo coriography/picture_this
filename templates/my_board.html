@@ -3,12 +3,14 @@
 {% block body %}
 <div class="container">
     <h1>My Board</h1>
-    {% if 'username' in session %}
+    {% if user %}
         <p>WELCOME, {{session.username}}</p>
-        <a class="btn btn-primary" href="/upload">Upload photos</a>
-        <a class="btn btn-secondary" href="/api/log_out">Log Out</a>
-
-        {% if user %}
+        <div>
+            <a class="btn btn-primary" href="/upload">Upload photos</a>
+            <a class="btn btn-secondary" href="/api/log_out">Log Out</a>
+        </div>
+        
+        
             <div class="row">
                 {% for image in user['images'] %}
                     <div class="col-lg-4">
@@ -17,10 +19,9 @@
                     </div>
                 {% endfor %}
             </div>
-        {% endif%}
 
     {% else %}
-        <p>Please log in or create an account to see your board.</p>
+        <p>Please <a href="/log_in">log in</a> to access this page.</p>
     {% endif %}
 </div>
     

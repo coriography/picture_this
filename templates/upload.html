@@ -4,6 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-6">
+            {% if user %}
+
             <h1>Add a photo</h1>
             <form action="/api/upload" method="POST">
                 <div class="form-group">
@@ -20,19 +22,25 @@
                     <input type="checkbox" class="form-check-input" id="private" name="private" value="yes">
                     <label class="form-check-label" for="exampleCheck1">Mark this image as Private</label>
                 </div>
+
+                {% if user['tags'] %}
                 
                 <div class="form-group">
                     <select class="custom-select">
                         <option selected>Add a tag</option>
-                        <option value="None">No tag</option>
+                        {% for tag in user['tags'] %}
+                            <option value="{{tag.tag_id}}">{{tag.name}}</option>
+                        {% endfor %}
                     </select>
                 </div>
-
-                {% for tag in user['tags'] %}
-                <p>tag</p>
                 {% else %}
-                <p>no tags yet!</p>
-                {% endfor %}
+                <div class="form-group">
+                    <p>You haven't created any tags yet! <a href="/tags">Add tags now</a></p>
+                </div>
+                {% endif %}
+                
+                
+                
 
                 
                 <!-- <div class="form-group">
@@ -44,6 +52,10 @@
                     <input class="form-control btn btn-primary" type="submit">
                 </div>
             </form>
+
+            {% else %}
+            <p>Please <a href="/log_in">log in</a> to access this page.</p>
+            {% endif %}
         </div>
     </div>
 </div>
