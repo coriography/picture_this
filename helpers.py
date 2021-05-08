@@ -6,6 +6,9 @@ from model import db, User, Image, Tag
 def get_all_users():
     return User.query.all()
 
+def get_user_by_user_id(user_id):
+    return User.query.filter(User.user_id == user_id).first()
+
 
 ##### * User registration & login * #####
 
@@ -47,3 +50,17 @@ def upload_image(url, notes, user_id, private=False, tag_id=None):
 def get_images_by_user(user_id):
     return Image.query.filter(Image.user_id == user_id).all()
     
+
+##### * Tags * #####
+
+def create_tag(name, icon, hex_code, user_id):
+    tag = Tag(
+        name=name,
+        icon=icon,
+        hex_code=hex_code,
+        user_id=user_id
+    )
+    db.session.add(tag)
+    db.session.commit()
+
+    return tag

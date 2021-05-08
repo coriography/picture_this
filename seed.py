@@ -17,7 +17,11 @@ for i in data:
     register_user(data[i]['name'], data[i]['email'], data[i]['password'])
     if 'images' in data[i]:
         for image in data[i]['images']:
-            upload_image(image['url'], image['notes'], image['user'], image['private'], image['tag'])
+            upload_image(image['url'], image['notes'], image['user'], image['private'])
+            # , image['tag']
+    if 'tags' in data[i]:
+        for tag in data[i]['tags']:
+            create_tag(tag['name'], tag['icon'], tag['hex_code'], tag['user_id'])
 
 if __name__ == '__main__':
     print("we're in seed")

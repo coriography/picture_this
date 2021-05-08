@@ -79,7 +79,7 @@ class Image(db.Model):
     def __repr__(self):
         """Display info about Image."""
 
-        return f'<Image image_id={self.image_id}, url={self.url}, date={self.date}>'
+        return f'<Image image_id={self.image_id}, url={self.url}>'
 
 
 
