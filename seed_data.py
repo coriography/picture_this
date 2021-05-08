@@ -29,21 +29,21 @@ data = {
                 'notes': 'leaping kitteh',
                 'private': False,
                 'user': 1,
-                # 'tag_id': '0'
+                'tag_id': '1'
             },
             {
                 'url': 'http://laurencariscooks.com/1_lcc/wp-content/uploads/2016/08/Black-Bean-Burgers-4-600x600.jpg',
                 'notes': 'vegan burgers YUM',
                 'private': True,
                 'user': 1,
-                # 'tag_id': '1'
+                'tag_id': '2'
             },
             {
                 'url': 'https://d1e00ek4ebabms.cloudfront.net/production/9f067a3c-87df-4503-bfc2-63c3a7b769f4.jpg',
                 'notes': 'Irish Cottagecore 4ever',
                 'private': False,
                 'user': 1,
-                # 'tag_id': '2'
+                'tag_id': '3'
             }
         ]
     },
