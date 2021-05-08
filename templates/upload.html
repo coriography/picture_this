@@ -26,7 +26,7 @@
                 {% if user['tags'] %}
                 
                 <div class="form-group">
-                    <select class="custom-select">
+                    <select class="custom-select" name="tag_id">
                         <option selected>Add a tag</option>
                         {% for tag in user['tags'] %}
                             <option value="{{tag.tag_id}}">{{tag.name}}</option>
@@ -38,15 +38,6 @@
                     <p>You haven't created any tags yet! <a href="/tags">Add tags now</a></p>
                 </div>
                 {% endif %}
-                
-                
-                
-
-                
-                <!-- <div class="form-group">
-                    <label>Tag:</label>
-                    <input class="form-control" type="text" name="tag_id">
-                </div> -->
 
                 <div class="form-group">
                     <input class="form-control btn btn-primary" type="submit">
