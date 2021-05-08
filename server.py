@@ -89,6 +89,13 @@ def log_out():
     flash('Logout successful.')
     return redirect('/')
 
+@app.route('/api/upload', methods=['POST'])
+def user_upload_from_form():
+
+
+    flash('Upload submit message')
+    return redirect('/my_board')
+
 
 if __name__ == "__main__":
     connect_to_db(app)
