@@ -23,9 +23,6 @@
             <h2 class="my-0">
                 <i class="far fa-grin-hearts mr-1 fa-1x"></i>
                 PT
-                <!-- <i class="far fa-grin-hearts mr-2 fa-1x"></i> -->
-                <!-- <i class="far fa-grin-hearts mr-2 fa-1x"></i> -->
-                
             </h2>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -53,6 +50,11 @@
                 <li class="nav-item">
                     <a class="nav-link" target="_blank" href="https://github.com/coriography/picture_this">About</a>
                 </li>
+                {% if 'user_id' in session %}
+                <li class="nav-item ml-2">
+                    <a class="btn btn-secondary" href="/api/log_out">Log out</a>
+                </li>
+                {% endif %}
             </ul>
         </div>
     </nav>
