@@ -109,6 +109,8 @@ $ python3 server.py
 
 12. Go to localhost:5000 in your browser
 
+13. Create an account, or log in with existing account *guppy@thecat.com, badpw*
+
 
 ## What's next? :thinking:
 
