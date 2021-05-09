@@ -7,14 +7,13 @@
         <p>WELCOME, {{session.username}}</p>
         <div class="mb-4">
             <a class="btn btn-primary" href="/upload">Upload photos</a>
-            <a class="btn btn-secondary" href="/api/log_out">Log Out</a>
         </div>
             <div class="row">
                 {% for image in user['images'] %}
                     <div class="col-lg-4">
                         <img class="img-fluid mb-2" src="{{image.url}}" alt="">
                         {% if image.tag %}
-                        <button class="btn btn-primary d-inline"><i class="{{image.tag.icon}} mr-2"></i>{{image.tag.name}}</button>
+                        <button class="btn btn-secondary d-inline"><i class="{{image.tag.icon}} mr-2"></i>{{image.tag.name}}</button>
                         {% else %}
                         <p>no tag</p>
                         {% endif %}
