@@ -4,7 +4,16 @@ Picture This is a photo repository to store and categorize your favorite pics.
 
 
 ## Tech stack :books:  
-Python/Flask with Unittest and bcrypt, SQL/PostgreSQL, SQLAlchemy ORM, Jinja (HTML templating), CSS/Bootstrap
+* Python/Flask with Unittest and bcrypt
+* SQL/PostgreSQL
+* SQLAlchemy ORM
+* Jinja (HTML templating)
+* CSS/Bootstrap
+
+
+## The database model :card_index_dividers:
+
+![app screenshot](/static/img/model_pt_v1.png)
 
 
 ## How it works :desktop_computer:
@@ -104,14 +113,15 @@ $ python3 server.py
 ## What's next? :thinking:
 
 1. add image hosting with Cloudinary API (see example of this in [Cello Tree](https://github.com/coriography/cello_tree))
-2. add search & sort by tag
-3. add click & drag arrangement of photos on My Board
+2. add search, sort, and color customzation by tag
+3. store "private" images in hidden folder
+4. add click & drag arrangement of photos on My Board
 
 
-## About this project :woman_technologist:
+## About the developer :woman_technologist:
 
 Built by [Cori Lint](https://github.com/coriography), with the help of Guppy the cat. :cat:
 
-Cori is cellist-turned-software engineer with a knack for motivating and inspiring others. As her career has evolved from performance, to production, to web design, to software engineering, she has continued to seek growth and creative solutions. Cori brings to the tech industry leadership abilities, persistence, focus, empathy, and good judgment, along with a strong set of technical skills and prior experience in web development. She is a Summa Cum Laude graduate of the University of Michigan, and an active member of Artists Who Code, an online community that advocates for creative professionals in the tech industry.
+*Cori is cellist-turned-software engineer with a knack for motivating and inspiring others. As her career has evolved from performance, to production, to web design, to software engineering, she has continued to seek growth and creative solutions. Cori brings to the tech industry leadership abilities, persistence, focus, empathy, and good judgment, along with a strong set of technical skills and prior experience in web development. She is a Summa Cum Laude graduate of the University of Michigan, and an active member of Artists Who Code, an online community that advocates for creative professionals in the tech industry.*
 
 Contact Cori on [LinkedIn](https://www.linkedin.com/in/cori-lint/)
