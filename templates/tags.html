@@ -11,7 +11,7 @@
 
                 {% if user['tags'] %}
                     {% for tag in user['tags'] %}
-                        <button class="btn btn-primary" value="{{tag.tag_id}}" style="background-color: purple">
+                        <button class="btn btn-secondary" value="{{tag.tag_id}}">
                             <i class="{{tag.icon}} mr-2"></i> 
                             {{tag.name}}
                         </button>

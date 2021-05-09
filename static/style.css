@@ -16,5 +16,37 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
     width: 100%;
     z-index: -1;
-    opacity: .7;
+    opacity: .5;
+}
+
+a {
+    color: #b04f0f;
+}
+
+a:hover {
+    color: #411308;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #b04f0f;
+    border-color: #b04f0f;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #411308;
+    border-color: #411308;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #e0a356;
+    border-color: #e0a356;
+}
+
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #a9aebf;
+    border-color: #a9aebf;
 }
