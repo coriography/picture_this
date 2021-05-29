@@ -52,7 +52,7 @@ $ git clone https://github.com/coriography/picture_this
 2. Create virtual environment:
 
 ```
-$ venv env
+$ python3 -m venv env
 ```
 
 3. Activate your virtual environment:
@@ -77,39 +77,27 @@ $ pip3 install -r requirements.txt
 $ source secrets.sh
 ```
 
-7. Create your database, "pt":
-
-```
-$ createdb pt
-```
-
-8. Create database tables:
-
-```
-$ python3 model.py
-```
-
-9. Run tests:
+7. Run tests:
 
 ```
 $ python3 tests.py
 ```
 
-10. Populate the app with data:
+8. Create database and populate the app with data:
 
 ```
 $ python3 seed.py
 ```
 
-11. Launch the server:
+9. Launch the server:
 
 ```
 $ python3 server.py
 ```
 
-12. Go to localhost:5000 in your browser
+10. Go to localhost:5000 in your browser
 
-13. Create an account, or log in with existing account *guppy@thecat.com, badpw*
+11. Create an account, or log in with existing account *guppy@thecat.com, badpw*
 
 
 ## What's next? :thinking:
